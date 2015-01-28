@@ -1,19 +1,17 @@
-package JHazm.Test;
+package java.test;
 
-import JHazm.WordTokenizer;
 import java.io.IOException;
+import java.jhazm.WordTokenizer;
 import java.util.List;
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+
 
 /**
  *
  * @author Mojtaba Khallash
  */
 public class WordTokenizerTest {
-    
-    @Test
-    public void TokenizeTest() throws IOException {
+
+    public static void TokenizeTest() throws IOException {
         WordTokenizer wordTokenizer = new WordTokenizer(false);
 
         String input;
@@ -26,8 +24,7 @@ public class WordTokenizerTest {
         check(input, expected, actual);
     }
 
-    @Test
-    public void JoinVerbPartsTest() throws IOException {
+    public static void JoinVerbPartsTest() throws IOException {
         WordTokenizer wordTokenizer = new WordTokenizer(true);
 
         String input;
@@ -60,10 +57,11 @@ public class WordTokenizerTest {
         check(input, expected, actual);
     }
     
-    private void check(String input, String[] expected, List<String> actual) {
-        assertEquals("Failed to tokenize words of '" + input + "' sentence", expected.length, actual.size());
+    private static void check(String input, String[] expected, List<String> actual) {
+    	Test.showCompare("" + actual.size(), "" + expected.length);
+        
         for (int i = 0; i < expected.length; i++) {
-            assertEquals("Failed to tokenize words of '" + input + "' sentence", expected[i], actual.get(i));
+        	Test.showCompare(actual.get(i), expected[i]);
         }
     }
 }

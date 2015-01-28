@@ -1,9 +1,9 @@
-package com.test;
+package java.test;
 
 import java.io.IOException;
+import java.jhazm.Lemmatizer;
 import java.util.List;
 
-import com.jhazm.Lemmatizer;
 
 /**
  *
@@ -11,7 +11,7 @@ import com.jhazm.Lemmatizer;
  */
 public class LemmatizerTest {
     
-    public void LemmatizeTest() throws IOException {
+    public static void LemmatizeTest() throws IOException {
         Lemmatizer lemmatizer = new Lemmatizer();
 
         String input, expected, actual;
@@ -44,7 +44,7 @@ public class LemmatizerTest {
     }
 
 
-    public void ConjugationsTest() throws IOException {
+    public static void ConjugationsTest() throws IOException {
         Lemmatizer lemmatizer = new Lemmatizer();
 
         String input;
@@ -88,11 +88,11 @@ public class LemmatizerTest {
         check(input, expected, actual);
     }
         
-    private void check(String input, String[] expected, List<String> actual) {
-        assertEquals("Failed to generate conjugations of '" + input + "' verb", expected.length, actual.size());
+    private static void check(String input, String[] expected, List<String> actual) {
+    	Test.showCompare("" + actual.size(), "" + expected.length);
         for (int i = 0; i < expected.length; i++) {
             if (!actual.contains(expected[i]))
-                assertEquals("Failed to generate conjugations of '" + input + "' verb", expected[i], actual.get(i));
+            	Test.showCompare(actual.get(i), expected[i]);
         }
     }
 }

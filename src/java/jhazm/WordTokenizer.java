@@ -1,6 +1,7 @@
-package com.jhazm;
+package java.jhazm;
 
 import java.io.IOException;
+import java.jhazm.utility.RegexPattern;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -10,7 +11,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import com.jhazm.utility.RegexPattern;
 
 /**
  *

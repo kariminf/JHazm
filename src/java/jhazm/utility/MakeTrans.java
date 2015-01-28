@@ -1,4 +1,4 @@
-package com.jhazm.utility;
+package java.jhazm.utility;
 
 import java.util.HashMap;
 import java.util.Map;

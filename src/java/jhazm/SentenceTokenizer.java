@@ -1,9 +1,9 @@
-package com.jhazm;
+package java.jhazm;
 
+import java.jhazm.utility.RegexPattern;
 import java.util.Arrays;
 import java.util.List;
 
-import com.jhazm.utility.RegexPattern;
 
 /**
  *

@@ -1,17 +1,14 @@
-package JHazm.Test;
+package java.test;
 
-import JHazm.Normalizer;
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+import java.jhazm.Normalizer;
 
 /**
  *
  * @author Mojtaba Khallash
  */
 public class NormalizerTests {
-    
-    @Test
-    public void CharacterRefinementTest() {
+
+    public static void CharacterRefinementTest() {
         Normalizer normalizer = new Normalizer(true, false, false);
 
         String input, expected, actual;
@@ -19,21 +16,21 @@ public class NormalizerTests {
         input = "اصلاح كاف و ياي عربي";
         expected = "اصلاح کاف و یای عربی";
         actual = normalizer.Run(input);
-        assertEquals("Failed to character refinement of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "رمــــان";
         expected = "رمان";
         actual = normalizer.Run(input);
-        assertEquals("Failed to character refinement of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "1,2,3,...";
         expected = "۱,۲,۳, …";
         actual = normalizer.Run(input);
-        assertEquals("Failed to character refinement of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
     }
 
-    @Test
-    public void PunctuationSpacing() {
+ 
+    public static void PunctuationSpacing() {
         Normalizer normalizer = new Normalizer(false, true, false);
 
         String input, expected, actual;
@@ -41,11 +38,10 @@ public class NormalizerTests {
         input = "اصلاح ( پرانتزها ) در متن .";
         expected = "اصلاح (پرانتزها) در متن.";
         actual = normalizer.Run(input);
-        assertEquals("Failed to punctuation spacing of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
     }
 
-    @Test
-    public void AffixSpacing() {
+    public static void AffixSpacing() {
         Normalizer normalizer = new Normalizer(false, false, true);
 
         String input, expected, actual;
@@ -53,21 +49,21 @@ public class NormalizerTests {
         input = "خانه ی پدری";
         expected = "خانه‌ی پدری";
         actual = normalizer.Run(input);
-        assertEquals("Failed to affix spacing of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "فاصله میان پیشوند ها و پسوند ها را اصلاح می کند.";
         expected = "فاصله میان پیشوند‌ها و پسوند‌ها را اصلاح می‌کند.";
         actual = normalizer.Run(input);
-        assertEquals("Failed to affix spacing of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "می روم";
         expected = "می‌روم";
         actual = normalizer.Run(input);
-        assertEquals("Failed to affix spacing of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "حرفه ای";
         expected = "حرفه‌ای";
         actual = normalizer.Run(input);
-        assertEquals("Failed to affix spacing of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
     }
 }

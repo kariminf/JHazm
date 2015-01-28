@@ -1,8 +1,6 @@
-package JHazm.Test;
+package java.test;
 
-import JHazm.Stemmer;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import java.jhazm.Stemmer;
 
 /**
  *
@@ -10,8 +8,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class StemmerTests {
     
-    @Test
-    public void StemTest() {
+    public static void StemTest() {
         Stemmer stemmer = new Stemmer();
 
         String input, expected, actual;
@@ -19,26 +16,26 @@ public class StemmerTests {
         input = "کتابی";
         expected = "کتاب";
         actual = stemmer.Stem(input);
-        assertEquals("Failed to stem of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "کتاب‌ها";
         expected = "کتاب";
         actual = stemmer.Stem(input);
-        assertEquals("Failed to stem of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "کتاب‌هایی";
         expected = "کتاب";
         actual = stemmer.Stem(input);
-        assertEquals("Failed to stem of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "کتابهایشان";
         expected = "کتاب";
         actual = stemmer.Stem(input);
-        assertEquals("Failed to stem of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "اندیشه‌اش";
         expected = "اندیشه";
         actual = stemmer.Stem(input);
-        assertEquals("Failed to stem of '" + input + "'", expected, actual);
+        Test.showCompare(actual, expected);
     }
 }

@@ -1,9 +1,8 @@
-package JHazm.Test;
+package java.test;
 
-import JHazm.SentenceTokenizer;
+import java.jhazm.SentenceTokenizer;
 import java.util.List;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
 
 /**
  *
@@ -11,11 +10,8 @@ import static org.junit.Assert.*;
  */
 public class SentenceTokenizerTests {
 
-    public SentenceTokenizerTests() {
-    }
 
-    @Test
-    public void tokenizeTest() {
+    public static void tokenizeTest() {
         SentenceTokenizer senTokenizer = new SentenceTokenizer();
         
         String input = "جدا کردن ساده است. تقریبا البته!";
@@ -26,11 +22,12 @@ public class SentenceTokenizerTests {
         System.out.println("actual: ");
         List<String> actual = senTokenizer.Tokenize(input);
         
-        assertEquals("Failed to tokenize sentences of '" + input + "' passage", expected.length, actual.size());
+        Test.showCompare(""+actual.size(), "" + expected.length);
         for (int i = 0; i < actual.size(); i++) {
             String sentence = actual.get(i);
             System.out.println("\t" + sentence);
-            assertEquals("Failed to tokenize sentences of '" + input + "' passage", expected[i], actual.get(i));
+            Test.showCompare(actual.get(i), expected[i]);
+            
         }
     }
 }
