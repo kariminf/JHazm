@@ -1,9 +1,9 @@
 package hazm.jhazm;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -13,16 +13,17 @@ import java.util.List;
 /**
  *
  * @author Mojtaba Khallash
+ * modified by Abdelkrime Aries
  */
 public class Lemmatizer {
-    private HashMap verbs;
+    private HashMap<String, String> verbs;
     private HashSet<String> words;
 
     public Lemmatizer() throws IOException { 
-        this("data/words.dat", "data/verbs.dat", true);
+        this("/data/words.dat", "/data/verbs.dat", true);
     }
     public Lemmatizer(boolean joinedVerbParts) throws IOException {
-        this("data/words.dat", "data/verbs.dat", joinedVerbParts);
+        this("/data/words.dat", "/data/verbs.dat", joinedVerbParts);
     }
     public Lemmatizer(String wordsFile, String verbsFile) throws IOException {
         this(wordsFile, verbsFile, true);
@@ -31,20 +32,36 @@ public class Lemmatizer {
             throws IOException {
         //Stemmer stemmer = new Stemmer();
 
-        this.words = new HashSet<>();
-        for (String line : Files.readAllLines(Paths.get(wordsFile), Charset.forName("UTF8")))
-            this.words.add(line.trim());
-
+        words = new HashSet<String>();
+        {
+        	InputStream in = getClass().getResourceAsStream(wordsFile);
+        	InputStreamReader ir = new InputStreamReader(in, "UTF-8");
+        	BufferedReader input = new BufferedReader(ir);
+        	for(String line = input.readLine(); line != null; line = input.readLine())
+        		words.add(line.trim());
+        	input.close();
+        }
+        
+            
         WordTokenizer tokenizer = new WordTokenizer(verbsFile);
 
-        List<String> pureVerbs = Files.readAllLines(Paths.get(verbsFile), Charset.forName("UTF8"));
+        List<String> pureVerbs = new ArrayList<String>();
 
-        this.verbs = new HashMap();
-        this.verbs.put("است", "#است");
+        {
+        	InputStream in = getClass().getResourceAsStream(verbsFile);
+        	InputStreamReader ir = new InputStreamReader(in, "UTF-8");
+        	BufferedReader input = new BufferedReader(ir);
+        	for(String line = input.readLine(); line != null; line = input.readLine())
+        		pureVerbs.add(line.trim());
+        	input.close();
+        }
+        
+        verbs = new HashMap<String, String>();
+        verbs.put("است", "#است");
         for (String verb : pureVerbs) {
             for (String tense : Conjugations(verb)) {
-                if (!this.verbs.containsKey(tense))
-                    this.verbs.put(tense, verb);
+                if (!verbs.containsKey(tense))
+                    verbs.put(tense, verb);
             }
         }
 
@@ -52,10 +69,10 @@ public class Lemmatizer {
             for (String verb : pureVerbs) {
                 String[] parts = verb.split("#");
                 for (String afterVerb : tokenizer.getAfterVerbs()) {
-                    this.verbs.put(parts[0] + "ه " + afterVerb, verb);
+                    verbs.put(parts[0] + "ه " + afterVerb, verb);
                 }
                 for (String beforeVerb : tokenizer.getBeforeVerbs()) {
-                    this.verbs.put(beforeVerb + " " + parts[0], verb);
+                    verbs.put(beforeVerb + " " + parts[0], verb);
                 }
             }
         }
@@ -66,14 +83,14 @@ public class Lemmatizer {
     }
     
     public String Lemmatize(String word, String pos) {
-        if ((pos.length() == 0 || pos.equals("V")) && this.verbs.containsKey(word))
-            return this.verbs.get(word).toString();
+        if ((pos.length() == 0 || pos.equals("V")) && verbs.containsKey(word))
+            return verbs.get(word).toString();
 
-        if (this.words.contains(word))
+        if (words.contains(word))
             return word;
 
         String stem = new Stemmer().Stem(word);
-        if (this.words.contains(stem))
+        if (words.contains(stem))
             return stem;
 
         return word;
@@ -94,7 +111,7 @@ public class Lemmatizer {
             return conjugate1;
         }
 
-        HashSet<String> conjugates = new HashSet<>();
+        HashSet<String> conjugates = new HashSet<String>();
         String[] parts = verb.split("#");
         String past = parts[0];
         String present = parts[1];
@@ -164,7 +181,7 @@ public class Lemmatizer {
             conjugates.add(GetRefinement(conj));
         }
 
-        return new ArrayList(conjugates);
+        return new ArrayList<String>(conjugates);
     }
 
     private String GetRefinement(String text) {

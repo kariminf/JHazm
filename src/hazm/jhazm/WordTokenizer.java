@@ -2,16 +2,15 @@ package hazm.jhazm;
 
 import hazm.jhazm.utility.RegexPattern;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-
 
 /**
  *
@@ -40,7 +39,7 @@ public class WordTokenizer {
     }
 
     public WordTokenizer(boolean joinVerbParts) throws IOException {
-        this("data/verbs.dat", joinVerbParts);
+        this("/data/verbs.dat", joinVerbParts);
     }
 
     public WordTokenizer(String verbsFile) throws IOException {
@@ -86,7 +85,16 @@ public class WordTokenizer {
 
             this.beforeVerbs = new HashSet<>(Arrays.asList(tokens));
 
-            this.verbs = new ArrayList<>(Files.readAllLines(Paths.get(verbsFile), Charset.forName("UTF8")));
+            this.verbs = new ArrayList<String>();
+            {
+            	InputStream in = getClass().getResourceAsStream(verbsFile);
+            	InputStreamReader ir = new InputStreamReader(in, "UTF-8");
+            	BufferedReader input = new BufferedReader(ir);
+            	for(String line = input.readLine(); line != null; line = input.readLine())
+            		this.verbs.add(line.trim());
+            	input.close();
+            }
+            
             Collections.reverse(this.verbs);
             for (int i = 0; i < this.verbs.size(); i++)
             {

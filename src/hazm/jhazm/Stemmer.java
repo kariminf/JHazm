@@ -1,5 +1,7 @@
 package hazm.jhazm;
 
+import aak.tools.Strings;
+
 //import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -12,10 +14,11 @@ public class Stemmer {
     };
 
     public String Stem(String word) {
-        for (String end : this.ends) {
+        for (String end : ends) {
             if (word.endsWith(end)) {
                 word = word.substring(0, word.length() - end.length()).trim();
-                //word = StringUtils.strip(word, "‌");
+                
+                word = Strings.specialTrim(word);
             }
         }
 

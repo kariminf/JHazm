@@ -34,11 +34,11 @@ public class Normalizer {
         this.punctuationSpacing = punctuationSpacing;
         this.affixSpacing = affixSpacing;
 
-        this.translations = new MakeTrans(" كي;%1234567890", " کی؛٪۱۲۳۴۵۶۷۸۹۰");
+        translations = new MakeTrans(" كي;%1234567890", " کی؛٪۱۲۳۴۵۶۷۸۹۰");
 
 
         if (this.characterRefinement) {
-            this.characterRefinementPatterns = new ArrayList<>();
+            this.characterRefinementPatterns = new ArrayList<RegexPattern>();
             // remove "keshide" and "carriage return" characters
             this.characterRefinementPatterns.add(new RegexPattern("[ـ\\r]", ""));
             // remove extra spaces
