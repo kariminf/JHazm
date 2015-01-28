@@ -1,10 +1,9 @@
-package JHazm.Test;
+package com.test;
 
-import JHazm.Lemmatizer;
 import java.io.IOException;
 import java.util.List;
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+
+import com.jhazm.Lemmatizer;
 
 /**
  *
@@ -12,7 +11,6 @@ import org.junit.Test;
  */
 public class LemmatizerTest {
     
-    @Test
     public void LemmatizeTest() throws IOException {
         Lemmatizer lemmatizer = new Lemmatizer();
 
@@ -21,30 +19,31 @@ public class LemmatizerTest {
         input = "کتاب‌ها";
         expected = "کتاب";
         actual = lemmatizer.Lemmatize(input);
-        assertEquals("Failed to lematize of '" + input + "' word", expected, actual);
+        
+        Test.showCompare(actual, expected);
 
         input = "آتشفشان";
         expected = "آتشفشان";
         actual = lemmatizer.Lemmatize(input);
-        assertEquals("Failed to lematize of '" + input + "' word", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "می‌روم";
         expected = "رفت#رو";
         actual = lemmatizer.Lemmatize(input);
-        assertEquals("Failed to lematize of '" + input + "' word", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "گفته شده است";
         expected = "گفت#گو";
         actual = lemmatizer.Lemmatize(input);
-        assertEquals("Failed to lematize of '" + input + "' word", expected, actual);
+        Test.showCompare(actual, expected);
 
         input = "مردم";
         expected = "مردم";
         actual = lemmatizer.Lemmatize(input, "N");
-        assertEquals("Failed to lematize of '" + input + "' word", expected, actual);
+        Test.showCompare(actual, expected);
     }
 
-    @Test
+
     public void ConjugationsTest() throws IOException {
         Lemmatizer lemmatizer = new Lemmatizer();
 

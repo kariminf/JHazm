@@ -1,4 +1,4 @@
-package JHazm.Utility;
+package com.jhazm.utility;
 
 /**
  *
