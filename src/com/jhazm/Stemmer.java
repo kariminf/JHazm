@@ -1,6 +1,6 @@
-package JHazm;
+package com.jhazm;
 
-import org.apache.commons.lang3.StringUtils;
+//import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -15,7 +15,7 @@ public class Stemmer {
         for (String end : this.ends) {
             if (word.endsWith(end)) {
                 word = word.substring(0, word.length() - end.length()).trim();
-                word = StringUtils.strip(word, "‌");
+                //word = StringUtils.strip(word, "‌");
             }
         }
 
