@@ -1,5 +1,7 @@
 package hazm.test;
 
+import java.io.IOException;
+
 import hazm.jhazm.Normalizer;
 
 /**
@@ -66,4 +68,10 @@ public class NormalizerTests {
         actual = normalizer.Run(input);
         Test.showCompare(actual, expected);
     }
+    
+    public static void main(String[] args) {
+    	CharacterRefinementTest();
+    	PunctuationSpacing();
+    	AffixSpacing();
+	}
 }

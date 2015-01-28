@@ -38,4 +38,9 @@ public class StemmerTests {
         actual = stemmer.Stem(input);
         Test.showCompare(actual, expected);
     }
+    
+    public static void main(String[] args) {
+    	StemTest();
+	}
+    
 }

@@ -31,4 +31,8 @@ public class SentenceTokenizerTests {
             
         }
     }
+    
+    public static void main(String[] args) {
+    	tokenizeTest();
+	}
 }

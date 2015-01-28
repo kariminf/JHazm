@@ -65,4 +65,13 @@ public class WordTokenizerTest {
         	Test.showCompare(actual.get(i), expected[i]);
         }
     }
+    
+    public static void main(String[] args) {
+    	try {
+			TokenizeTest();
+			JoinVerbPartsTest();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
