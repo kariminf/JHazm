@@ -1,0 +1,10 @@
+*.class
+.directory
+
+# Package Files #
+*.war
+*.ear
+
+#directories
+bin/
+.settings/
