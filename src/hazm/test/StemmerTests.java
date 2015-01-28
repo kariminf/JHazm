@@ -1,6 +1,6 @@
 package hazm.test;
 
-import hazm.jhazm.Stemmer;
+import hazm.jhazm.PersianStemmer;
 
 /**
  *
@@ -9,7 +9,7 @@ import hazm.jhazm.Stemmer;
 public class StemmerTests {
     
     public static void StemTest() {
-        Stemmer stemmer = new Stemmer();
+        PersianStemmer stemmer = new PersianStemmer();
 
         String input, expected, actual;
 

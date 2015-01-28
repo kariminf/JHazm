@@ -1,6 +1,6 @@
 package hazm.test;
 
-import hazm.jhazm.WordTokenizer;
+import hazm.jhazm.PersianWordTokenizer;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 public class WordTokenizerTest {
 
     public static void TokenizeTest() throws IOException {
-        WordTokenizer wordTokenizer = new WordTokenizer(false);
+        PersianWordTokenizer wordTokenizer = new PersianWordTokenizer(false);
 
         String input;
         String[] expected;
@@ -26,7 +26,7 @@ public class WordTokenizerTest {
     }
 
     public static void JoinVerbPartsTest() throws IOException {
-        WordTokenizer wordTokenizer = new WordTokenizer(true);
+        PersianWordTokenizer wordTokenizer = new PersianWordTokenizer(true);
 
         String input;
         String[] expected;

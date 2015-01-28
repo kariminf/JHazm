@@ -8,7 +8,7 @@ import aak.tools.Strings;
  *
  * @author Mojtaba Khallash
  */
-public class Stemmer {
+public class PersianStemmer {
     private final String[] ends = new String[] {
         "ات", "ان", "ترین", "تر", "م", "ت", "ش", "یی", "ی", "ها", "ٔ", "‌ا", //
     };

@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author Mojtaba Khallash
  */
-public class WordTokenizer {
+public class PersianWordTokenizer {
     private boolean joinVerbParts = true;
     private HashSet<String> beforeVerbs;
     public HashSet<String> getBeforeVerbs() {
@@ -34,19 +34,19 @@ public class WordTokenizer {
         return verbs;
     }
 
-    public WordTokenizer() throws IOException {
+    public PersianWordTokenizer() throws IOException {
         this(true);
     }
 
-    public WordTokenizer(boolean joinVerbParts) throws IOException {
+    public PersianWordTokenizer(boolean joinVerbParts) throws IOException {
         this("/data/verbs.dat", joinVerbParts);
     }
 
-    public WordTokenizer(String verbsFile) throws IOException {
+    public PersianWordTokenizer(String verbsFile) throws IOException {
         this(verbsFile, true);
     }
 
-    public WordTokenizer(String verbsFile, boolean joinVerbParts)
+    public PersianWordTokenizer(String verbsFile, boolean joinVerbParts)
             throws IOException {
         this.joinVerbParts = joinVerbParts;
         this.pattern = new RegexPattern("([؟!\\?]+|[:\\.،؛»\\]\\)\\}\"«\\[\\(\\{])", " $1 ");

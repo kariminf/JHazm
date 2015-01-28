@@ -1,6 +1,6 @@
 package hazm.test;
 
-import hazm.jhazm.Lemmatizer;
+import hazm.jhazm.PersianLemmatizer;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 public class LemmatizerTest {
     
     public static void LemmatizeTest() throws IOException {
-        Lemmatizer lemmatizer = new Lemmatizer();
+        PersianLemmatizer lemmatizer = new PersianLemmatizer();
 
         String input, expected, actual;
 
@@ -46,7 +46,7 @@ public class LemmatizerTest {
 
 
     public static void ConjugationsTest() throws IOException {
-        Lemmatizer lemmatizer = new Lemmatizer();
+        PersianLemmatizer lemmatizer = new PersianLemmatizer();
 
         String input;
         String[] expected;

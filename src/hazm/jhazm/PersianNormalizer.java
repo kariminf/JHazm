@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Mojtaba Khallash
  */
-public class Normalizer {
+public class PersianNormalizer {
     private boolean characterRefinement = true;
     private List<RegexPattern> characterRefinementPatterns;
 
@@ -25,11 +25,11 @@ public class Normalizer {
 
     private MakeTrans translations;
 
-    public Normalizer() {
+    public PersianNormalizer() {
         this(true, true, true);
     }
 
-    public Normalizer(boolean characterRefinement, boolean punctuationSpacing, boolean affixSpacing) {
+    public PersianNormalizer(boolean characterRefinement, boolean punctuationSpacing, boolean affixSpacing) {
         this.characterRefinement = characterRefinement;
         this.punctuationSpacing = punctuationSpacing;
         this.affixSpacing = affixSpacing;

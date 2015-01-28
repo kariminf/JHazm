@@ -10,10 +10,10 @@ import java.util.List;
  *
  * @author Mojtaba Khallash
  */
-public class SentenceTokenizer {
+public class PersianSentTokenizer {
     private final RegexPattern pattern;
 
-    public SentenceTokenizer() {
+    public PersianSentTokenizer() {
         this.pattern = new RegexPattern("([!\\.\\?⸮؟]+)[ \\n]+", "$1\n\n");
     }
 

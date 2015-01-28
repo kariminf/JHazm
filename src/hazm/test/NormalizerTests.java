@@ -2,7 +2,7 @@ package hazm.test;
 
 import java.io.IOException;
 
-import hazm.jhazm.Normalizer;
+import hazm.jhazm.PersianNormalizer;
 
 /**
  *
@@ -11,7 +11,7 @@ import hazm.jhazm.Normalizer;
 public class NormalizerTests {
 
     public static void CharacterRefinementTest() {
-        Normalizer normalizer = new Normalizer(true, false, false);
+        PersianNormalizer normalizer = new PersianNormalizer(true, false, false);
 
         String input, expected, actual;
 
@@ -33,7 +33,7 @@ public class NormalizerTests {
 
  
     public static void PunctuationSpacing() {
-        Normalizer normalizer = new Normalizer(false, true, false);
+        PersianNormalizer normalizer = new PersianNormalizer(false, true, false);
 
         String input, expected, actual;
 
@@ -44,7 +44,7 @@ public class NormalizerTests {
     }
 
     public static void AffixSpacing() {
-        Normalizer normalizer = new Normalizer(false, false, true);
+        PersianNormalizer normalizer = new PersianNormalizer(false, false, true);
 
         String input, expected, actual;
 

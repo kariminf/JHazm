@@ -1,6 +1,6 @@
 package hazm.test;
 
-import hazm.jhazm.SentenceTokenizer;
+import hazm.jhazm.PersianSentTokenizer;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class SentenceTokenizerTests {
 
 
     public static void tokenizeTest() {
-        SentenceTokenizer senTokenizer = new SentenceTokenizer();
+        PersianSentTokenizer senTokenizer = new PersianSentTokenizer();
         
         String input = "جدا کردن ساده است. تقریبا البته!";
         System.out.println("input: " + input);

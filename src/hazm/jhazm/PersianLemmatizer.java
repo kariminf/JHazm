@@ -15,20 +15,20 @@ import java.util.List;
  * @author Mojtaba Khallash
  * modified by Abdelkrime Aries
  */
-public class Lemmatizer {
+public class PersianLemmatizer {
     private HashMap<String, String> verbs;
     private HashSet<String> words;
 
-    public Lemmatizer() throws IOException { 
+    public PersianLemmatizer() throws IOException { 
         this("/data/words.dat", "/data/verbs.dat", true);
     }
-    public Lemmatizer(boolean joinedVerbParts) throws IOException {
+    public PersianLemmatizer(boolean joinedVerbParts) throws IOException {
         this("/data/words.dat", "/data/verbs.dat", joinedVerbParts);
     }
-    public Lemmatizer(String wordsFile, String verbsFile) throws IOException {
+    public PersianLemmatizer(String wordsFile, String verbsFile) throws IOException {
         this(wordsFile, verbsFile, true);
     }
-    public Lemmatizer(String wordsFile, String verbsFile, boolean joinedVerbParts)
+    public PersianLemmatizer(String wordsFile, String verbsFile, boolean joinedVerbParts)
             throws IOException {
         //Stemmer stemmer = new Stemmer();
 
@@ -43,7 +43,7 @@ public class Lemmatizer {
         }
         
             
-        WordTokenizer tokenizer = new WordTokenizer(verbsFile);
+        PersianWordTokenizer tokenizer = new PersianWordTokenizer(verbsFile);
 
         List<String> pureVerbs = new ArrayList<String>();
 
@@ -89,7 +89,7 @@ public class Lemmatizer {
         if (words.contains(word))
             return word;
 
-        String stem = new Stemmer().Stem(word);
+        String stem = new PersianStemmer().Stem(word);
         if (words.contains(stem))
             return stem;
 
