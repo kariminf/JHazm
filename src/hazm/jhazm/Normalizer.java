@@ -1,7 +1,8 @@
-package java.jhazm;
+package hazm.jhazm;
 
-import java.jhazm.utility.MakeTrans;
-import java.jhazm.utility.RegexPattern;
+import hazm.jhazm.utility.MakeTrans;
+import hazm.jhazm.utility.RegexPattern;
+
 import java.util.ArrayList;
 import java.util.List;
 

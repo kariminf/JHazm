@@ -1,4 +1,4 @@
-package java.jhazm;
+package hazm.jhazm;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

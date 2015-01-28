@@ -1,6 +1,6 @@
-package java.test;
+package hazm.test;
 
-import java.jhazm.Normalizer;
+import hazm.jhazm.Normalizer;
 
 /**
  *

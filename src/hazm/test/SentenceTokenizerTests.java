@@ -1,6 +1,7 @@
-package java.test;
+package hazm.test;
 
-import java.jhazm.SentenceTokenizer;
+import hazm.jhazm.SentenceTokenizer;
+
 import java.util.List;
 
 

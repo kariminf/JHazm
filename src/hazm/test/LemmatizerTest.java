@@ -1,7 +1,8 @@
-package java.test;
+package hazm.test;
+
+import hazm.jhazm.Lemmatizer;
 
 import java.io.IOException;
-import java.jhazm.Lemmatizer;
 import java.util.List;
 
 
@@ -95,4 +96,16 @@ public class LemmatizerTest {
             	Test.showCompare(actual.get(i), expected[i]);
         }
     }
+    
+    
+    public static void main(String[] args) {
+    	try {
+			LemmatizeTest();
+			ConjugationsTest();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 }

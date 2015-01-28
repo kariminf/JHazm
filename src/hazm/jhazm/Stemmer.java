@@ -1,4 +1,4 @@
-package java.jhazm;
+package hazm.jhazm;
 
 //import org.apache.commons.lang3.StringUtils;
 

@@ -1,7 +1,8 @@
-package java.test;
+package hazm.test;
+
+import hazm.jhazm.WordTokenizer;
 
 import java.io.IOException;
-import java.jhazm.WordTokenizer;
 import java.util.List;
 
 

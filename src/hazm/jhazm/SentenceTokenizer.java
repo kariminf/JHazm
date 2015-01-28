@@ -1,6 +1,7 @@
-package java.jhazm;
+package hazm.jhazm;
 
-import java.jhazm.utility.RegexPattern;
+import hazm.jhazm.utility.RegexPattern;
+
 import java.util.Arrays;
 import java.util.List;
 
