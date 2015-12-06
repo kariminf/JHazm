@@ -1,3 +1,7 @@
+JHazm_AS
+========
+JHazm for Allsummarizer. It is a modified version of JHazm to work along with Allsummarizer's preprocessing plugin.
+
 JHazm
 =====
 
