@@ -14,11 +14,11 @@ public class Strings {
 	public static String specialTrim(String word){
 		char[] wordChars = word.toCharArray();
 		int start = 0;
-		while (delChar(wordChars[start]) && start < wordChars.length)
+		while (start < wordChars.length && delChar(wordChars[start]))
 			start++;
 		
 		int end = wordChars.length-1;
-		while(delChar(wordChars[end]) && end >= 0)
+		while(end >= 0 && delChar(wordChars[end]))
 			end--;
 		
 		if (start > end) return "";
