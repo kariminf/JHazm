@@ -1,7 +1,7 @@
 /*
  * Gradle build specifications for
  * SentRep: Sentence representator
- * 
+ *
  * Copyright 2016-2017 Abdelkrime Aries <kariminfo0@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,7 +28,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 // Release version
-version = '1.0.1'
+version = '1.0.2'
 
 ext.current_Date = getDate()
 
@@ -55,7 +55,7 @@ def getDate() {
     def formattedDate = date.format('yyyyMMddHHmm')
     return formattedDate
 }
- 
+
 repositories {
     jcenter()
 }
@@ -66,5 +66,3 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 }
-
-

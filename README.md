@@ -1,10 +1,10 @@
-# KJHazm
+# K-JHazm
 
-[![Project](https://img.shields.io/badge/Project-KJHazm-4B0082.svg)](https://github.com/kariminf/KJHazm)
+[![Project](https://img.shields.io/badge/Project-K--JHazm-4B0082.svg)](https://github.com/kariminf/k-jhazm)
 [![License](https://img.shields.io/badge/License-MIT-4B0082.svg)](https://opensource.org/licenses/MIT)
-[![jitpack](https://jitpack.io/v/kariminf/KJHazm.svg)](https://jitpack.io/#kariminf/KJHazm)
+[![jitpack](https://jitpack.io/v/kariminf/k-jhazm.svg)](https://jitpack.io/#kariminf/KJHazm)
 
-KJHazm is a fork of [JHazm](https://github.com/mojtaba-khallash/JHazm). It is meant to be a lighter
+K-JHazm is a fork of [JHazm](https://github.com/mojtaba-khallash/JHazm). It is meant to be a lighter
  version for [LangPi](https://github.com/kariminf/LangPi)
 
 ## JHazm
